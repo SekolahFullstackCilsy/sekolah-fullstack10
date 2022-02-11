@@ -1,0 +1,14 @@
+@import "colors";
+
+body{
+  background-color: $black;
+}
+
+input[type="text"] {
+  border-radius: 10px;
+  height: 100px;
+}
+
+input[type="radio"] {
+  border-color: 1px solid red;
+}

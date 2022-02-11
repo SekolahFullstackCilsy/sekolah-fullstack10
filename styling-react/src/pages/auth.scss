@@ -1,0 +1,14 @@
+
+.tab {
+  display: flex;
+  background-color: bisque;
+  justify-content: space-around;
+}
+
+.tab h3 {
+  cursor: pointer;
+}
+
+.tab-item {
+  padding: 25px;
+}
