@@ -1,0 +1,12 @@
+.blog-post {
+  width: 300px;
+  background-color: bisque;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.blog-post a {
+  text-decoration: none;
+  color: #222;
+}
