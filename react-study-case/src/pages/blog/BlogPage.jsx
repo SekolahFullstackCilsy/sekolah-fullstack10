@@ -8,7 +8,7 @@ const BlogPage = () => {
   //load DBase?
   useEffect(() => {
     const blogs = JSON.parse(localStorage.getItem("blogs"));
-    if (blogs.length > 0) {
+    if (blogs?.length > 0) {
       setBlogs(blogs);
     } else {
       localStorage.setItem("blogs", JSON.stringify(initialData));
