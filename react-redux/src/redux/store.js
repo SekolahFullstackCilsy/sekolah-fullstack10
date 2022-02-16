@@ -1,26 +1,11 @@
-import { createStore } from "redux"
+import { createStore, combineReducers } from "redux"
+import counterReducer from "./reducers/counterReducer";
+import cartReducer from "./reducers/cartReducer";
 
-const initialState = {
-   counter: 0
-}
-
-const rootReducer = (state = initialState, action) => {
-   if (action.type === "INCREMENT") {
-      return {
-         ...state,
-         counter: state.counter + 1
-      }
-   }
-
-   if (action.type === "DECREMENT") {
-      return {
-         ...state,
-         counter: state.counter - 1
-      }
-   }
-
-   return state;
-}
+const rootReducer = combineReducers({
+   counterReducer: counterReducer,
+   cartReducer: cartReducer
+})
 
 const store = createStore(rootReducer);
 export default store;
