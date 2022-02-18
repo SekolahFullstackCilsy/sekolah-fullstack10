@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../../components/Layout'
 
 function EditTodo() {
    return (
-      <div>EditTodo</div>
+      <Layout>
+         <div>EditTodo</div>
+      </Layout>
    )
 }
 

@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../../components/Layout'
 
 function AddTodo() {
    return (
-      <div>AddTodo</div>
+      <Layout>
+         <div>AddTodo</div>
+      </Layout>
    )
 }
 
