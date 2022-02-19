@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 function Layout({ children }) {
    return (
       <div>
-         <Navbar bg="primary" variant="dark" expand="lg">
+         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
                <NavLink to={"/"} className="navbar-brand">
                   Todo APP

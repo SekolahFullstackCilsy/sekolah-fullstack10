@@ -1,7 +1,23 @@
-export const getTodo = (data) => {
+export const getTodo = () => {
    return {
       type: "GET_TODO",
-      data: data
+      data: [
+         {
+            id: Math.random(), //1
+            name: "Makan",
+            description: "description for makan"
+         },
+         {
+            id: Math.random(), //2
+            name: "Minum",
+            description: "description for minum"
+         },
+         {
+            id: Math.random(), //3
+            name: "Mandi",
+            description: "description for mandi"
+         }
+      ]
    }
 }
 
@@ -26,9 +42,9 @@ export const updateTodo = (data) => {
    }
 }
 
-export const deleteTodo = (data) => {
+export const deleteTodo = (id) => {
    return {
       type: "DELETE_TODO",
-      data: data
+      id: id
    }
 }
