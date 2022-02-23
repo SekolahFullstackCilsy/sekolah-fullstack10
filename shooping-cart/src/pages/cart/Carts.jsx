@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { CartStyled, CartList } from "./CartsStyled";
 import { useSelector } from "react-redux";
 import Layout from "../../components/Layout";
 
 const Carts = () => {
-  const { carts } = useSelector((state) => state.productReducer);
+  const { carts: cartsStore } = useSelector((state) => state.productReducer);
+  const [carts, setCarts] = useState(cartsStore);
+
+  const handleChangeQty = (e, id) => {
+    const findProduct = carts.find((val) => val.id === id);
+    findProduct.qty = e.target.value;
+    setCarts([...carts]);
+  };
 
   return (
     <Layout>
@@ -35,7 +42,13 @@ const Carts = () => {
                         <td>{val.productName}</td>
                         <td>
                           <button>-</button>
-                          <span>{val.qty}</span>
+                          <span>
+                            <input
+                              type="number"
+                              value={val.qty}
+                              onChange={(e) => handleChangeQty(e, val.id)}
+                            />
+                          </span>
                           <button>+</button>
                         </td>
                         <td>{val.price}</td>
