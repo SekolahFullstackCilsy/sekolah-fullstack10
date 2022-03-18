@@ -1,17 +1,28 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+const product = require('../controllers/productController');
 
-// Read List
+/**
+ * Route yang berhubungan
+ * dengan rendering halaman
+ */
 router.get('/', (req, res) => {
-   res.sendFile(path.join(__dirname, "../", "pages", "product.html"));
+   res.render('produk');
 });
 
-router.post('/', (req, res) => {
-   const { nama_produk, harga } = req.body;
-   res.json({
-      nama_produk, harga
-   });
+router.get('/detail/:id', (req, res) => {
+
 });
+
+
+/**
+ * CONTROLLER RESOURCES
+ * Route yang berkomunikasi dengan controller
+ */
+router.get('/list', product.getProductList);
+router.get('/get/:id', product.getProduct);
+router.post('/', product.addProduct);
+router.put('/:id', product.updateProduct);
+router.delete('/:id', product.deleteProduct);
 
 module.exports = router;
