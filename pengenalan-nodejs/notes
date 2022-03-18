@@ -1,0 +1,37 @@
+
+API (Applicatin Programming Interface)
+Interface ->
+
+Mobile App
+
+Web App         => API   => database
+
+Desktop App
+
+JSON
+[
+  {id: name:}
+]
+
+Jenis dari API
+
+- Public API
+- Private API => authentikasi, token 
+- Partner API
+
+Manfaat 
+- Mudah 
+- lebih efisien
+- ringan dari server
+  -> arsitektur
+    -> REST
+    -> RPC
+    -> SOAP
+
+GET => ngambil data
+POST => ngirim data
+PUT => ngerubah data
+PATCH => ngerubah data
+DELETE => delete data
+
+ES Module
