@@ -12,6 +12,11 @@ function Layout({ children }) {
                </NavLink>
                <Navbar.Toggle aria-controls="basic-navbar-nav" />
                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="me-auto">
+                     <NavLink to="/product" className="nav-link">
+                        Product
+                     </NavLink>
+                  </Nav>
                   <Nav className="ms-auto">
                      <NavLink to="/login" className="nav-link">
                         Login
