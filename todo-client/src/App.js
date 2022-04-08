@@ -1,28 +1,27 @@
-import './App.css';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Login from './pages/Auth/Login';
-import Register from './pages/Auth/Register';
-
+import "./App.css";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Navbar from "./components/navbar/Navbar";
+import Auth from "./pages/Auth/Auth";
+import Todos from "./pages/Todos/Todos";
+import TodoAdd from "./pages/Todos/TodoAdd";
+import TodoEdit from "./pages/Todos/TodoEdit";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-      <ul>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
-        <li><NavLink to="/register">Register</NavLink></li>
-        <li><NavLink to="/">Todo</NavLink></li>
-      </ul>
-      
+    <BrowserRouter>
+      <Navbar />
+
+      <div className="App">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <Route exact path="/todo" component={Todos} />
+          <Route exact path="/add-todo" component={TodoAdd} />
+          <Route exact path="/edit-todo/:id" component={TodoEdit} />
+          <Route path="/auth" component={Auth} />
         </Switch>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
