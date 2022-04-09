@@ -6,8 +6,9 @@ import {
   GET_TODO,
   GET_TODOS,
   UPDATE_TODO,
-  userData,
 } from "../constants";
+
+const userData = JSON.parse(localStorage.getItem("userData")) || {};
 
 export const getTodos = () => {
   return (dispatch) => {
@@ -101,7 +102,7 @@ export const updateTodo = (data) => {
       .patch(`${API_URL}/todo`, data, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${userData.access_token}`,
+          Authorization: `Bearer ${userData && userData.access_token}`,
         },
       })
       .then((res) => {

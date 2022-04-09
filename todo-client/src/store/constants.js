@@ -1,8 +1,9 @@
 export const API_URL = "http://localhost:8000";
 
-export const userData = JSON.parse(localStorage.getItem("userData"));
+export const userData = JSON.parse(localStorage.getItem("userData")) || {};
 
 export const LOGIN_USER = "[USER] Login";
+export const LOGOUT_USER = "[USER] Logout";
 export const GET_TODOS = "[GET] Todos";
 export const ADD_TODO = "[POST] Todo";
 export const DELETE_TODO = "[DELETE] Todo";

@@ -17,3 +17,9 @@ export const loginUser = (data) => {
       });
   };
 };
+
+export const logoutUser = () => {
+  return (dispatch) => {
+    window.localStorage.removeItem("userData");
+  };
+};

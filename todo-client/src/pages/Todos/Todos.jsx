@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Button } from "../../components/button/Button";
-import { deleteTodo, getTodos } from "../../store/actions/todo";
+import { deleteTodo, getTodoById, getTodos } from "../../store/actions/todo";
+import { userData } from "../../store/constants";
 import { TodosStyled } from "./TodosStyles";
 
 const Todos = () => {
@@ -19,6 +20,7 @@ const Todos = () => {
   };
 
   const handleEdit = (id) => {
+    dispatch(getTodoById(id));
     history.push(`/edit-todo/${id}`);
   };
 
@@ -36,11 +38,15 @@ const Todos = () => {
           todos.map((todo, key) => (
             <div className="todo-item" key={key}>
               {todo.name}
+              <br />
+              <span>By: {todo.user.username}</span>
 
-              <div className="todo-actions">
-                <button onClick={() => handleEdit(todo.id)}>Edit</button>
-                <button onClick={() => handleDelete(todo.id)}>Delete</button>
-              </div>
+              {userData.user_id === todo.user_id && (
+                <div className="todo-actions">
+                  <button onClick={() => handleEdit(todo.id)}>Edit</button>
+                  <button onClick={() => handleDelete(todo.id)}>Delete</button>
+                </div>
+              )}
             </div>
           ))}
       </TodosStyled>

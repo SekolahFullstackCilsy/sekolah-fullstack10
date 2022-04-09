@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { AuthStyled, TabStyled, Tab, TabContent } from "./AuthStyles";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../store/actions/auth";
+import { useHistory } from "react-router-dom";
 
 const Auth = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [tab, setTab] = useState(0);
   const [state, setState] = useState({
     username: "",
@@ -21,6 +23,7 @@ const Auth = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     dispatch(loginUser(state));
+    history.push("/todo");
   };
 
   const handleTab = (tabIndex) => setTab(tabIndex);

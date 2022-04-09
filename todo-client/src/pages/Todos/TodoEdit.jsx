@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import { getTodoById, updateTodo } from "../../store/actions/todo";
+import { useHistory } from "react-router-dom";
+import { updateTodo } from "../../store/actions/todo";
 import { userData } from "../../store/constants";
 
 const TodoEdit = () => {
   const dispatch = useDispatch();
   const { todo } = useSelector((state) => state.todo);
   const history = useHistory();
-  const { id } = useParams();
   const [state, setState] = useState({
     name: "",
     description: "",
@@ -16,13 +15,7 @@ const TodoEdit = () => {
   });
 
   useEffect(() => {
-    dispatch(getTodoById(id));
-  }, [id]);
-
-  useEffect(() => {
-    if (!state.name) {
-      setState(todo);
-    }
+    setState(todo);
   }, [todo]);
 
   const handleFormChange = (e) => {

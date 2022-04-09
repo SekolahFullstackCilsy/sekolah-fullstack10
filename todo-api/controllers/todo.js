@@ -2,7 +2,12 @@ const { Todo, User } = require('../database/models')
 
 exports.findAll = async (req, res, next) => {                      
   try {
-    const todo = await Todo.findAll()
+    const todo = await Todo.findAll({
+      include: [{
+        model: User,
+        as: 'user',
+      }]
+    })
 
     return res.status(200).json({
       status: 'success',

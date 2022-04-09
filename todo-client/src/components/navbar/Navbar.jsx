@@ -1,11 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { logoutUser } from "../../store/actions/auth";
+import { userData } from "../../store/constants";
 import { NavbarStyled } from "./NavbarStyles";
 
-const Navbar = (props) => {
-  const { userData } = useSelector((state) => state.auth);
-  console.log(userData);
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const logout = () => {
+    dispatch(logoutUser());
+    history.push("/auth");
+  };
+
   return (
     <NavbarStyled>
       <ul>
@@ -16,13 +24,15 @@ const Navbar = (props) => {
           <NavLink to="/todo">Todo</NavLink>
         </li>
         <li>
-          {userData.username ? (
+          {userData && userData.username ? (
             `Hello ${userData.username}`
           ) : (
             <NavLink to="/auth">Sign In / Register</NavLink>
           )}
         </li>
-        <li>{userData.username && `Logout`}</li>
+        <li onClick={() => logout()}>
+          {userData && userData.username && `Logout`}
+        </li>
       </ul>
     </NavbarStyled>
   );
